@@ -1,1 +1,52 @@
-<p>add-improvement-dialog works!</p>
+@if(showForm){
+    <div class="form-box">
+    <div class="dropdown">
+        <tr>
+            <label for=type>Type: </label>
+            <button id="type" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ selectedType }}
+              </button>
+              
+              <ul class="dropdown-menu">
+                @for(type of availableTypes;track $index){
+                    <li><a class="dropdown-item"(click)="selectImprovement(type)" >{{type}} </a>
+                    </li>
+                }
+               
+               
+              </ul>
+        </tr>
+        <div>
+            <label>Benefits: </label>
+            <ul>
+                @for(resource of benefits;track $index){
+                <li> {{resource}}  </li>
+                }
+              
+               
+            </ul>
+        </div>
+     <div>
+    <label>Cost: </label>
+    <ul>
+        <li>
+            <p>Lumber : {{cost.lumber}} </p></li>
+            <li><p>Person : {{cost.person}} </p></li>
+            <li><p>Grain : {{cost.grain}} </p></li>
+            <li><p>sheep : {{cost.sheep}} </p></li>
+            <li><p>water : {{cost.water}} </p></li>
+        
+    </ul>
+    <!-- @for(c of costKeys;track $index){
+        {{ c }}: {{ cost[c]}}
+            } -->
+  </div>
+       <tr>
+        <button (click)= "cancel()"> Cancel </button>
+        <button (click)= "addImprovement()"> Add </button>
+       </tr>
+      
+      </div>
+    </div>
+}
+

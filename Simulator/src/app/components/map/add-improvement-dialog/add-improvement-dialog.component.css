@@ -1,0 +1,24 @@
+/* styles.css or component-specific stylesheet */
+.form-box {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+  }
+  
+  .form-box .dropdown {
+    margin-bottom: 15px;
+  }
+  
+  .form-box .form-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .form-box .form-buttons button {
+    width: 48%;
+  }
+  
