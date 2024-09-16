@@ -1,1 +1,19 @@
-<p>resources-view works!</p>
+<div class="container">
+    <table class="table table table-success table-striped">
+      <thead>
+        <tr>
+          <th>Resources</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let r of displayResources | keyvalue; let i = index">
+          <td>
+            <app-resource-line [type]="r.key" [amount]="r.value"></app-resource-line>
+          </td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

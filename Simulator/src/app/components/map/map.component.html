@@ -1,1 +1,16 @@
-<p>map works!</p>
+<div class="map-container">
+    <div class="grid">
+      <app-tile
+        *ngFor="let cell of grid; let i = index"
+        [index]="i"
+        [improvement]="improvements[i]"
+        (cellClick)="onCellClick($event)">
+      </app-tile>
+    </div>
+  </div>
+ @if(showAddDialog){
+<app-add-improvement-dialog></app-add-improvement-dialog>
+ } 
+ @if(showEditDialog){
+<app-edit-improvement-dialog></app-edit-improvement-dialog>
+ }

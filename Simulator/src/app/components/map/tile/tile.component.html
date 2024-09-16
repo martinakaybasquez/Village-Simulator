@@ -1,1 +1,7 @@
-<p>tile works!</p>
+<div class="grid-cell" (click)="onClick()">
+    <!-- Display improvement if it exists -->
+    <div *ngIf="improvement">
+      <i [ngClass]="getIcon(improvement.type)"></i>
+    </div>
+  </div>
+  

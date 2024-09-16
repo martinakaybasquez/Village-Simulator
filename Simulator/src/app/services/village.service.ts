@@ -23,36 +23,44 @@ export class VillageService {
   improvement:ImprovementModel[] = []; // acts as an empty "cart" you fill with improvments
   allImprovements:ImprovementModel[] = [
     {
-      type:"house",
+      type:"House",
       level:1,
       cost:{lumber:5, grain:5, water:5, sheep:1, person:0},
       resource:{lumber:0, grain:0, water:0, sheep:0, person:5}
     },
     {
-      type:"field",
+      type:"Field",
       level:1,
       cost:{lumber:0, grain:0, water:2, sheep:0, person:1},
       resource:{lumber:0, grain:10, water:0, sheep:0, person:0}
     },
     {
-      type:"pasture",
+      type:"Pasture",
       level:1,
       cost:{lumber:0, grain:2, water:2, sheep:0, person:1},
       resource:{lumber:0, grain:0, water:0, sheep:5, person:0}
     },
     {
-      type:"lumber mill",
+      type:"Lumber",
       level:1,
       cost:{lumber:0, grain:0, water:0, sheep:0, person:1},
       resource:{lumber:10, grain:0, water:0, sheep:0, person:0}
     },
     {
-      type:"well",
+      type:"Well",
       level:1,
       cost:{lumber:2, grain:0, water:0, sheep:0, person:1},
       resource:{lumber:0, grain:0, water:10, sheep:0, person:0}
     }
   ];
+
+  getImprovements() {
+    return this.improvement;
+  }
+  
+  getResources() {
+    return this.availableResources;
+  }
 
   //  method that takes in cost:any variable and returns a boolean
   // for user to afford improvement ALL statements must return true

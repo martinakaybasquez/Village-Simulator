@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start; 
+    height: 100vh;
+    padding: 16px; 
+  }
+  
+  .left-side, .right-side {
+    flex: 1; 
+    margin: 0 8px; 
+  }
+  
+  .left-side {
+    /* Styles specific to the left component */
+    max-width: 50%; /* Adjust width as needed */
+  }
+  
+  .right-side {
+    /* Styles specific to the right component */
+    max-width: 50%; /* Adjust width as needed */
+  }
+  
