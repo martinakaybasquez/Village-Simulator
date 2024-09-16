@@ -51,8 +51,8 @@ console.log(key);
     if (this.selectedType) {
       const improvementDetails = this.villageService.getImprovements(this.selectedType);
       if (improvementDetails) {
-        const result = this.villageService.addImprovement(improvementDetails);
-        alert(result);
+        // const result = this.villageService.addImprovement(improvementDetails);
+        // alert(result);
         this.improvementAdded.emit(improvementDetails.type);
         this.showForm = false; // Hide the form
       } else {

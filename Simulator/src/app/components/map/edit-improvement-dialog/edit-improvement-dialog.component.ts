@@ -46,7 +46,7 @@ upgradeImprovement():void {
   
 
 downgradeImprovement(): void {
-  this.villageServices.downgradeImprovement(this.getImprovement().type);
+ // this.villageServices.downgradeImprovement(this.getImprovement().type);
 }
 
 

@@ -23,7 +23,7 @@ selectedCellIndex: number | null = null;
 
   ngOnInit():void {
     this.grid = Array(25).fill(0); // 5x5 grid
-    this.improvements = Array(25).fill(null); // empty
+    this.improvements = this.villageService.getCurrentImprovement(); // empty
   }
      
    
@@ -31,7 +31,7 @@ selectedCellIndex: number | null = null;
   onCellClick(index: number): void {
    console.log(`${index}`);
    
-   if(this.improvements[index]=== null){
+   if(this.improvements[index]===null){
 console.log("empty cell");
 this.selectedCellIndex = index;
 this.showAddDialog =true;
@@ -47,11 +47,12 @@ this.showAddDialog =true;
       
       if (newImprovement) {
         // Add improvement to service and update the grid
-        let result = this.villageService.addImprovement(newImprovement);
+        let result = this.villageService.addImprovement(newImprovement,this.selectedCellIndex);
+        this.improvements = this.villageService.getCurrentImprovement(); 
         console.log(result);
         
         // Update local improvements array
-        this.improvements[this.selectedCellIndex] = newImprovement;
+        //this.improvements[this.selectedCellIndex] = newImprovement;
         this.showAddDialog = false;
         this.selectedCellIndex = null;
         

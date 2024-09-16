@@ -17,7 +17,7 @@ export class VillageService {
   };
   private valueEmitter = new BehaviorSubject<any>(null);
   valueEmitter$ = this.valueEmitter.asObservable();
-  improvement:ImprovementModel[] = [];
+  improvement:ImprovementModel[] =Array(25).fill(null);
   allImprovements: ImprovementModel[] = [
     { 
       type: "person", 
@@ -53,12 +53,15 @@ export class VillageService {
 getImprovements(type:string) {
   return this.allImprovements.find(i=>i.type === type)||null;
 }
+getCurrentImprovement(): ImprovementModel[]{
+  return this.improvement;
+}
 
 getResources() {
   return this.resources;
 }
   
-  addImprovement(improvementItem:ImprovementModel):string{
+  addImprovement(improvementItem:ImprovementModel,id:number):string{
    
 if(this.canAfford(improvementItem) || true ){
   this.resources.person -= improvementItem.cost.person;
@@ -67,7 +70,9 @@ if(this.canAfford(improvementItem) || true ){
   this.resources.water -= improvementItem.cost.water;
   this.resources.sheep -= improvementItem.cost.sheep;
  this.addResources(improvementItem.resource);
-  this.improvement.push(improvementItem);
+ this.improvement[id] = improvementItem;
+  //this.improvement.push(improvementItem);
+  
   return `${improvementItem.type} is added successfully`;
 }else{
 return `${improvementItem.type} is not enough`;
