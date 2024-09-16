@@ -25,26 +25,10 @@ export class MapComponent implements OnInit {
   ngOnInit():void {
     this.grid = Array(25).fill(0); // 5x5 grid
     this.improvements = Array(25).fill(null); // empty
-    this.improvements[5] = {
-      type: 'person',
-            level: 1,
-            cost: {
-              lumber: 5,
-              grain: 5,
-              water: 5,
-              sheep: 1,
-              person:0
-            },
-            resource: {
-              lumber: 0,
-              grain: 0,
-              water: 0,
-              sheep: 0,
-              person:5
-            }
-     }
+  }
+     
    
-}
+
   onCellClick(index: number):void {
    console.log(`${index}`);
    
@@ -57,5 +41,12 @@ export class MapComponent implements OnInit {
     console.log(`${improvement.type} clicked`);
     this.showEditDialog = true;
    }
+  }
+  onImprovementRemove():void {
+      this.refresh()
+
+  }
+  refresh():void{
+    this.improvements= this.villageService.getImprovements();
   }
 }

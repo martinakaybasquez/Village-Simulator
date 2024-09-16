@@ -2,6 +2,11 @@
     <!-- Display improvement if it exists -->
     <div *ngIf="improvement">
       <i [ngClass]="getIcon(improvement.type)"></i>
+      @if(displayEdit){
+      <app-edit-improvement-dialog [improvement]="improvement"></app-edit-improvement-dialog>
+      }
+      <button (click)="showEdit()">Edit</button>
+      
     </div>
   </div>
   

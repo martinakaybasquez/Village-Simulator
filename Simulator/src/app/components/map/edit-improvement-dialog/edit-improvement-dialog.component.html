@@ -1,1 +1,90 @@
-<p>edit-improvement-dialog works!</p>
+<!-- <div>
+    <h2>Edit Improvement</h2>
+    <P>Type:</P>
+    <p>Benifit</p>
+    <p>cost</p>
+
+    
+</div> -->
+<div class="row">
+    <!-- <!-- <button class="btn border border-black bg-white" (click)="toggleDisplay()">New Thought</button> -->
+</div>
+@if (showForm) {
+    <div style="--bs-bg-opacity: .5;" class="bg-dark position-fixed top-0 start-0 bottom-0 end-0">
+        <div style="background-color: #B1DDEA;" class="rounded p-3 border border-black position-fixed top-50 start-50 translate-middle">
+            <div class="row">
+                <h2>{{ improvement.type }} (Level {{ improvement.level }})</h2>
+                <!-- <p class="p-0">Title</p> -->
+            </div>
+            <div class="row">
+                <p>Cost: {{ improvement.cost.grain}} grain</p>
+    <p>Cost: {{ improvement.cost.sheep}} sheep</p>
+    <p>Cost: {{ improvement.cost.lumber}} lumber</p>
+    <p>Cost: {{ improvement.cost.water}} water</p>
+    <p>Cost: {{ improvement.cost.person}} person</p>
+    <p>Resources: {{ improvement.resource.grain}} grain</p>
+    <p>Resources: {{ improvement.resource.sheep}} sheep</p>
+    <p>Resources: {{ improvement.resource.lumber}} lumber</p>
+    <p>Resources: {{ improvement.resource.water}} water</p>
+    <p>Resources: {{ improvement.resource.person}} person</p>
+                <!-- <input class="p-0" type="text" [(ngModel)]="formPost.title"/> -->
+            </div>
+            <div class="row">
+                <button 
+      (click)="upgradeImprovement()" 
+      [disabled]="!canAfford(improvement.cost)">
+      Upgrade
+    </button>
+                <!-- <p class="p-0">Thought</p> -->
+            </div>
+            <div class="row">
+                <button 
+                (click)="downgradeImprovement()" 
+                [disabled]="!canDowngrade(improvement.resource)">
+                Downgrade
+              </button>
+                <!-- <input class="p-0" type="text" [(ngModel)]="formPost.thought"/> -->
+            </div>
+            <div class="row">
+                <button 
+      (click)="removeImprovement()">
+           Remove
+    </button>
+    <button (click)="cancel()">Close</button>
+                <!-- <button class="p-0" (click)="submitPost()">Add Post</button> -->
+            </div>
+        </div>   
+    </div>
+}
+     
+
+<!-- 
+<div class="dialog">
+    <h2>{{ improvement.type }} (Level {{ improvement.level }})</h2>
+    <p>Cost: {{ improvement.cost.grain}} grain</p>
+    <p>Cost: {{ improvement.cost.sheep}} sheep</p>
+    <p>Cost: {{ improvement.cost.lumber}} lumber</p>
+    <p>Cost: {{ improvement.cost.water}} water</p>
+    <p>Cost: {{ improvement.cost.person}} person</p>
+    <p>Resources: {{ improvement.resource.grain}} grain</p>
+    <p>Resources: {{ improvement.resource.sheep}} sheep</p>
+    <p>Resources: {{ improvement.resource.lumber}} lumber</p>
+    <p>Resources: {{ improvement.resource.water}} water</p>
+    <p>Resources: {{ improvement.resource.person}} person</p>
+  
+    <button 
+      (click)="upgradeImprovement()" 
+      [disabled]="!canAfford(improvement.cost)">
+      Upgrade
+    </button>
+    <button 
+      (click)="downgradeImprovement()" 
+      [disabled]="!canDowngrade(improvement.resource)">
+      Downgrade
+    </button>
+    <button 
+      (click)="removeImprovement()">
+           Remove
+    </button>
+    <button (click)="close()">Close</button>
+  </div> -->

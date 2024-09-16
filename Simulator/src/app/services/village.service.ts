@@ -64,7 +64,7 @@ export class VillageService {
 
   //  method that takes in cost:any variable and returns a boolean
   // for user to afford improvement ALL statements must return true
-  private canAfford(cost:any):boolean {
+  public canAfford(cost:any):boolean {
     return (
       this.availableResources.lumber >= cost.lumber &&
       this.availableResources.grain >= cost.grain &&

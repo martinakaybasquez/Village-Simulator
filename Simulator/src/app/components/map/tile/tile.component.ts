@@ -1,12 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ImprovementModel } from '../../../models/improvement-model';
 import { CommonModule } from '@angular/common';
+import { EditImprovementDialogComponent } from "../edit-improvement-dialog/edit-improvement-dialog.component";
 
 
 @Component({
   selector: 'app-tile',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, EditImprovementDialogComponent],
   templateUrl: './tile.component.html',
   styleUrl: './tile.component.css'
 })
@@ -16,7 +17,7 @@ export class TileComponent {
   @Output() cellClick = new EventEmitter<number>();
 
   onClick():void {
-    this.cellClick.emit(this.index);
+   this.cellClick.emit(this.index);
   }
   getIcon(type:string):string {
     switch (type) {
@@ -34,4 +35,9 @@ export class TileComponent {
         return 'fas fa-question';
     }
   }
+  displayEdit:boolean = false;
+
+    showEdit():void{
+      this.displayEdit = !this.displayEdit;
+    }
 }
