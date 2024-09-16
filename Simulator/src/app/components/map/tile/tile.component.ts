@@ -25,11 +25,11 @@ export class TileComponent {
       case 'grain':
         return 'fas fa-seedling';
       case 'sheep':
-        return 'fas fa-sheep';
+        return 'fas fa-horse';
       case 'lumber':
         return 'fas fa-tree';
       case 'water':
-        return 'fas fa-water';
+        return 'fas fa-tint';
       default:
         return 'fas fa-question';
     }
