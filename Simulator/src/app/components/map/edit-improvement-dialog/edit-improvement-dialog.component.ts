@@ -14,6 +14,7 @@ export class EditImprovementDialogComponent {
   @Output() closeDialog = new EventEmitter<void>();
   @Output() improvementRemove = new EventEmitter<void>();
   showForm:boolean = true;
+  upgradeMessage: string = '';
   cancel(): void {
       this.showForm = false; // Hide the form
       // this.selectedType = null; // Reset the selected type
@@ -40,7 +41,11 @@ canDowngrade(resource: any): boolean {
   return this.getImprovement().level > 1;
 }
 upgradeImprovement():void {
-  this.villageServices.upgradeImprovement(this.getImprovement().type);
+  let result = this.villageServices.upgradeImprovement(this.getImprovement().type);
+    this.upgradeMessage = result; // Display the upgrade message (success or failure)
+    console.log(result);
+    alert(result);
+    this.showForm = false;
 }
   
   
