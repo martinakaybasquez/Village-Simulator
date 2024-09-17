@@ -9,7 +9,7 @@ export class VillageService {
 
   constructor() { }
   resources = {
-    person: 0,
+    person: 5,
     lumber: 5,
     grain: 5,
     water: 5,
@@ -130,8 +130,43 @@ upgradeImprovement(type: string): string {
   return `${type} upgraded to level ${newLevel}.`;
 }
 
-  downgradeImprovement(){
+  downgradeImprovement(type:string):string{
+    let index = this.improvement.findIndex(i => i.type === type);
+        let improvementToDowngrade = this.improvement[index];
+    if (improvementToDowngrade.level <= 1) {
+      return `${type} cannot be downgraded further.`;
+    }
 
+    let newLevel = improvementToDowngrade.level - 1;
+
+    // Calculate downgrade resource and cost effects
+    let downgradeCost = {
+      person: improvementToDowngrade.cost.person * improvementToDowngrade.level,
+      lumber: improvementToDowngrade.cost.lumber * improvementToDowngrade.level,
+      grain: improvementToDowngrade.cost.grain * improvementToDowngrade.level,
+      water: improvementToDowngrade.cost.water * improvementToDowngrade.level,
+      sheep: improvementToDowngrade.cost.sheep * improvementToDowngrade.level,
+    };
+
+    // Add back the upgrade cost as a resource refund
+    this.addResources(downgradeCost);
+
+    // Remove the resources produced by the higher level
+    let downgradeResources = {
+      person: improvementToDowngrade.resource.person * improvementToDowngrade.level,
+      lumber: improvementToDowngrade.resource.lumber * improvementToDowngrade.level,
+      grain: improvementToDowngrade.resource.grain * improvementToDowngrade.level,
+      water: improvementToDowngrade.resource.water * improvementToDowngrade.level,
+      sheep: improvementToDowngrade.resource.sheep * improvementToDowngrade.level,
+    };
+
+    this.deductCost(downgradeResources);
+
+    // Downgrade level
+    improvementToDowngrade.level = newLevel;
+
+    console.log(`${type} downgraded to level ${newLevel}.`);
+    return `${type} downgraded to level ${newLevel}.`;
   }
   canAfford(cost: any): boolean {
     return  this.resources.lumber >= cost.lumber &&
