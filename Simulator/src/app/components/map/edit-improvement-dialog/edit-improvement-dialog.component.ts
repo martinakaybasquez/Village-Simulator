@@ -59,8 +59,6 @@ downgradeImprovement(): void {
     this.showForm = false;
 }
 
-
-
 close():void {
   this.closeDialog.emit();
 }

@@ -22,8 +22,8 @@
   
   .right-side {
     /* Styles specific to the right component */
-    max-width: 50%; /* Adjust width as needed */
-    right: 100px;
+    max-width: 300px; /* Adjust width as needed */
+    margin-left: auto;
 
   }
   
