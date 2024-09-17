@@ -20,6 +20,13 @@ export class TileComponent {
    this.cellClick.emit(this.index);
   }
   getIcon(type:string):string {
+    console.log(type);
+    if(type != undefined) {
+      this.displayButton = true;
+    }
+    else{
+      this.displayButton = false;
+    }
     switch (type) {
       case 'person':
         return 'fas fa-house';
@@ -32,7 +39,7 @@ export class TileComponent {
       case 'water':
         return 'fas fa-tint';
       default:
-        return 'fas fa-question';
+        return '';
     }
   }
   displayEdit:boolean = false;
@@ -40,4 +47,5 @@ export class TileComponent {
     showEdit():void{
       this.displayEdit = !this.displayEdit;
     }
+    displayButton:boolean = false;
 }

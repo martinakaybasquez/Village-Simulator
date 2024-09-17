@@ -17,7 +17,7 @@ export class VillageService {
   };
   private valueEmitter = new BehaviorSubject<any>(null);
   valueEmitter$ = this.valueEmitter.asObservable();
-  improvement:ImprovementModel[] =Array(25).fill(null);
+  improvement:ImprovementModel[] =Array(25).fill({} as ImprovementModel);
   allImprovements: ImprovementModel[] = [
     { 
       type: "person", 
@@ -83,7 +83,7 @@ return `${improvementItem.type} is not enough`;
   let newimprovement = this.improvement[index];
     this.addResources(newimprovement.cost); // Re-add the cost to resources
     this.deductCost(newimprovement.resource); // Remove the resources produced by the newimprovement
-    this.improvement.splice(index, 1);
+    this.improvement[index]= {} as ImprovementModel;
     console.log(`Improvement ${type} removed.`);
     return true;
 }

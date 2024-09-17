@@ -11,7 +11,7 @@ import { VillageService } from '../../../services/village.service';
 })
 export class AddImprovementDialogComponent {
   @Output() improvementAdded = new EventEmitter<string>();
-  showForm:boolean = true;
+  @Output() displayChange = new EventEmitter<void>();
   selectedType: string | null = null; 
   benefits: string[] = [];
   costKeys: string[] = [];
@@ -54,7 +54,7 @@ console.log(key);
         // const result = this.villageService.addImprovement(improvementDetails);
         // alert(result);
         this.improvementAdded.emit(improvementDetails.type);
-        this.showForm = false; // Hide the form
+        
       } else {
         alert('Improvement details not found');
       }
@@ -66,7 +66,7 @@ console.log(key);
 
   // Method to cancel the form and reset
   cancel(): void {
-    this.showForm = false; // Hide the form
+    this.displayChange.emit(); // Hide the form
     this.selectedType = null; // Reset the selected type
   }
 }

@@ -5,7 +5,10 @@
       @if(displayEdit){
       <app-edit-improvement-dialog [improvement]="improvement"></app-edit-improvement-dialog>
       }
-      <button (click)="showEdit()">Edit</button>
+      @if (displayButton){
+
+        <button (click)="showEdit()">Edit</button>
+      }
       
     </div>
   </div>

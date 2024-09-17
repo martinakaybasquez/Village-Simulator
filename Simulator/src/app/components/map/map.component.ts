@@ -26,12 +26,14 @@ selectedCellIndex: number | null = null;
     this.improvements = this.villageService.getCurrentImprovement(); // empty
   }
      
-   
+  changeAddDisplay(){
+    this.showAddDialog = !this.showAddDialog;
+  }
 
   onCellClick(index: number): void {
    console.log(`${index}`);
    
-   if(this.improvements[index]===null){
+   if(Object.keys (this.improvements[index]).length=== 0){
 console.log("empty cell");
 this.selectedCellIndex = index;
 this.showAddDialog =true;

@@ -12,7 +12,7 @@
 <div class="dialog-container">
   @if(showAddDialog){
     
-    <app-add-improvement-dialog (improvementAdded)="onImprovementAdded($event)"></app-add-improvement-dialog>
+    <app-add-improvement-dialog (displayChange)="changeAddDisplay()"  (improvementAdded)="onImprovementAdded($event)"></app-add-improvement-dialog>
      } 
 </div>
   
