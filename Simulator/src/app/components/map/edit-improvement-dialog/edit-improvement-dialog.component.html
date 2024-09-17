@@ -9,56 +9,59 @@
 <div class="row">
     <!-- <!-- <button class="btn border border-black bg-white" (click)="toggleDisplay()">New Thought</button> -->
 </div>
-@if (showForm) {
-    <div style="--bs-bg-opacity: .5;" class="bg-dark position-fixed top-0 start-0 bottom-0 end-0">
-        <div style="background-color: #B1DDEA;width: 400px; padding: 16px;" class="rounded p-3 border border-black position-fixed top-50 start-50 translate-middle">
-            <div class="row">
-                <h2>{{ improvement.type }} (Level {{ improvement.level }})</h2>
-                <!-- <p class="p-0">Title</p> -->
-            </div>
-            <div class="row">
-                <p><b> Cost of Improvements: </b></p>
-                <p>- {{ improvement.cost.grain}} grain</p>
-                <p>- {{ improvement.cost.sheep}} sheep</p>
-                <p>- {{ improvement.cost.lumber}} lumber</p>
-                <p>- {{ improvement.cost.water}} water</p>
-                <p>- {{ improvement.cost.person}} person</p>
-                <p><b> Resources Gained:  </b></p>
-                <p>-{{ improvement.resource.grain}} grain</p>
-                <p>- {{ improvement.resource.sheep}} sheep</p>
-                <p>- {{ improvement.resource.lumber}} lumber</p>
-                <p>- {{ improvement.resource.water}} water</p>
-                <p>- {{ improvement.resource.person}} person</p>
-                <!-- <input class="p-0" type="text" [(ngModel)]="formPost.title"/> -->
-            </div>
-            <div class="row">
-                <button 
-      (click)="upgradeImprovement()" 
-      [disabled]="!canAfford(improvement.cost)">
-      Upgrade
-    </button>
-                <!-- <p class="p-0">Thought</p> -->
-            </div>
-            <div class="row">
-                <button 
-                (click)="downgradeImprovement()" 
-                [disabled]="!canDowngrade(improvement.resource)">
-                Downgrade
-              </button>
-                <!-- <input class="p-0" type="text" [(ngModel)]="formPost.thought"/> -->
-            </div>
-            <div class="row">
-                <button 
-      (click)="removeImprovement()">
-           Remove
-    </button>
-    <button (click)="cancel()">Close</button>
-                <!-- <button class="p-0" (click)="submitPost()">Add Post</button> -->
-            </div>
-        </div>   
-    </div>
-}
-     
+<div class="form-boxes">
+    @if (showForm) {
+        <div  id="testing"style="--bs-bg-opacity: .5;" class="bg-dark position-fixed top-0 start-0 bottom-0 end-0">
+            <div  style="background-color: #ffffff; width: 300px; padding: 10px;" class="rounded p-3 border border-black position-fixed top-50 start-50 translate-middle">
+                <div class="row">
+                    <h2>{{ improvement.type }} (Level {{ improvement.level }})</h2>
+                    <!-- <p class="p-0">Title</p> -->
+                </div>
+                <div class="row">
+                    <p><b> Cost of Improvements: </b></p>
+                    <p>- {{ improvement.cost.grain}} grain</p>
+                    <p>- {{ improvement.cost.sheep}} sheep</p>
+                    <p>- {{ improvement.cost.lumber}} lumber</p>
+                    <p>- {{ improvement.cost.water}} water</p>
+                    <p>- {{ improvement.cost.person}} person</p>
+                    <p><b> Resources Gained:  </b></p>
+                    <p>-{{ improvement.resource.grain}} grain</p>
+                    <p>- {{ improvement.resource.sheep}} sheep</p>
+                    <p>- {{ improvement.resource.lumber}} lumber</p>
+                    <p>- {{ improvement.resource.water}} water</p>
+                    <p>- {{ improvement.resource.person}} person</p>
+                    <!-- <input class="p-0" type="text" [(ngModel)]="formPost.title"/> -->
+                </div>
+                <div class="row">
+                    <button 
+          (click)="upgradeImprovement()" 
+          [disabled]="!canAfford(improvement.cost)">
+          Upgrade
+        </button>
+                    <!-- <p class="p-0">Thought</p> -->
+                </div>
+                <div class="row">
+                    <button 
+                    (click)="downgradeImprovement()" 
+                    [disabled]="!canDowngrade(improvement.resource)">
+                    Downgrade
+                  </button>
+                    <!-- <input class="p-0" type="text" [(ngModel)]="formPost.thought"/> -->
+                </div>
+                <div class="row">
+                    <button 
+          (click)="removeImprovement()">
+               Remove
+        </button>
+        <button (click)="cancel()">Close</button>
+                    <!-- <button class="p-0" (click)="submitPost()">Add Post</button> -->
+                </div>
+            </div>   
+        </div>
+    }
+         
+</div>
+
 
 <!-- 
 <div class="dialog">

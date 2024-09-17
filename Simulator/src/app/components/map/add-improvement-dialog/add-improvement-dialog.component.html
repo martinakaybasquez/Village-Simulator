@@ -1,7 +1,6 @@
 
     <div style="--bs-bg-opacity: .5;" class="bg-dark position-fixed top-0 start-0 bottom-0 end-0"></div>
-        <div style="background-color: #B1DDEA;" class="rounded p-3 border border-black position-fixed top-50 start-50 translate-middle">
-         
+        <div id="testing" style="background-color: #ffffff00; width: 300px; padding: 10px;" class="rounded p-3 border border-black position-fixed top-50 start-50 translate-middle"> 
     <div class="form-box">
     <div class="dropdown">
         <tr>
@@ -20,7 +19,7 @@
               </ul>
         </tr>
         <div>
-            <label>Benefits: </label>
+            <label>Resources Gained: </label>
             <ul>
                 @for(resource of benefits;track $index){
                 <li> {{resource}}  </li>
@@ -30,7 +29,7 @@
             </ul>
         </div>
      <div>
-    <label>Cost: </label>
+    <label>Cost of Improvement: </label>
     <ul>
         <li>
             <p>Lumber : {{cost.lumber}} </p></li>

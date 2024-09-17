@@ -1,3 +1,4 @@
+
 .grid-cell {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
@@ -11,9 +12,10 @@
   .grid-cell i {
     font-size: 24px; /* Adjust icon size as needed */
   }
+
   .grid-cell:hover {
-   
-background-color:coral;
-cursor: grab;
+  background-image: conic-gradient(from var(--angle), #281900, #5a5200, #005b5d, #63260b, #54691f, #12574f, #281900);
+  /* opacity: 70%; */
+  cursor: cell; 
   }
   
