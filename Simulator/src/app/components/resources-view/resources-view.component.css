@@ -1,5 +1,39 @@
-  
-  .table {
-    width: 50%; 
+.table {
+  width: 50%; 
+  position: relative;
+}
+
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.table::after, .table::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle), #281900, #5a5200, #005b5d, #63260b, #54691f, #12574f, #281900);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 160px;
+  border-radius: 10px;
+  animation: 3s spin linear infinite;
+}
+
+.table::before {
+  filter: blur(.5rem);
+  opacity: .5;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
   }
-  
+  to {
+    --angle: 360deg;
+  }
+}

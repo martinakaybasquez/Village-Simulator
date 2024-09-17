@@ -23,6 +23,8 @@
   .right-side {
     /* Styles specific to the right component */
     max-width: 50%; /* Adjust width as needed */
+    right: 100px;
+
   }
   
 /*   
